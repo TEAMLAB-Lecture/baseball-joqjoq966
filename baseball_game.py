@@ -300,7 +300,7 @@ def main():
                     break
             if guess_number =='0':
                 break
-            
+
             strike, ball = get_strikes_or_ball(guess_number,random_number)
             print(f"Strikes : {strike} , Balls : {ball}")
         if guess_number =='0':
@@ -308,6 +308,16 @@ def main():
 
         if strike==3:
             one_more = input("You win, one more(Y/N)?")
+            if one_more == '0':
+                break
+
+            while not is_yes(one_more) and not is_no(one_more):
+                print("Wrong Input, Input again")
+                one_more = input("You win, one more(Y/N)?")
+                if one_more =='0':
+                    break
+            if one_more =='0':
+                break
             if is_yes(one_more):
                 continue
             elif is_no(one_more):
