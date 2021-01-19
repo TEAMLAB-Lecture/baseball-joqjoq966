@@ -276,17 +276,36 @@ def main():
         # ===Modify codes below=============
         # 위의 코드를 포함하여 자유로운 수정이 가능함
         guess_number = input("Input guess number : ")
+        if guess_number =='0':
+            break
+
         while not is_validated_number(guess_number):
             print("Wrong Input, Input again")
             guess_number = input("Input guess number : ")
-
+            if guess_number =='0':
+                break
+        if guess_number =='0':
+            break
+        
         strike, ball = get_strikes_or_ball(guess_number,random_number)
         print(f"Strikes : {strike} , Balls : {ball}")
         while strike!=3:
             guess_number = input("Input guess number : ")
+            if guess_number =='0':
+                break
+            while not is_validated_number(guess_number):
+                print("Wrong Input, Input again")
+                guess_number = input("Input guess number : ")
+                if guess_number =='0':
+                    break
+            if guess_number =='0':
+                break
+            
             strike, ball = get_strikes_or_ball(guess_number,random_number)
             print(f"Strikes : {strike} , Balls : {ball}")
-        
+        if guess_number =='0':
+            break
+
         if strike==3:
             one_more = input("You win, one more(Y/N)?")
             if is_yes(one_more):
